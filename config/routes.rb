@@ -1,5 +1,10 @@
 MediaMash::Application.routes.draw do
+  get "pages/home"
+  get "pages/about"
+  get "pages/contact"
   resources :albums
+
+  root :to => "albums#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
