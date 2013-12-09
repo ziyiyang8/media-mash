@@ -1,4 +1,6 @@
 MediaMash::Application.routes.draw do
+  get "photos/index"
+  get "photos/new"
   get "pages/home"
   get "pages/about"
   get "pages/contact"
