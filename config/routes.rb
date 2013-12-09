@@ -1,4 +1,5 @@
 MediaMash::Application.routes.draw do
+  devise_for :users
   get "photos/index"
   get "photos/new"
   get "pages/home"
