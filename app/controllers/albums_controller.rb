@@ -17,6 +17,7 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = Album.new
+
   end
 
   # GET /albums/1/edit
@@ -28,14 +29,13 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params)
 
-    respond_to do |format|
-      if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @album }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
-      end
+    if @album.save
+      redirect_to @album, notice: 'Album was successfully created.'
+      #format.json { render action: 'show', status: :created, location: @album }
+    else
+      flash.now[:error] =  'Album failed to create'
+      render action: 'new'
+      #format.json { render json: @album.errors, status: :unprocessable_entity }
     end
   end
 
