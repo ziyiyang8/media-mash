@@ -8,11 +8,11 @@
   <dd><%= @album.name %></dd>
 </dl>
 
-sdfds
+
 <div>
   <% for photo in @album.photos %>
-    <div>Placeholder</div>
-    <div> photo.name </div>
+    <div><%= image_tag photo.image_url(:thumb).to_s %></div>
+    <div><%= photo.title %></div>
     <div>
     <%= link_to "edit" %>
     <%= link_to "remove" %>
@@ -21,6 +21,7 @@ sdfds
 </div>
 
 <div class="form-actions">
+  <%= link_to "Add Photo", new_photo_path(:album_id => @album), :class => 'btn' %>
   <%= link_to t('.back', :default => t("helpers.links.back")),
               albums_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

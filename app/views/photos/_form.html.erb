@@ -1,6 +1,15 @@
-<%= simple_form_for @photo, :html => {:multipart => true } do |f| %>
-	<%= f.input :title %>
-	<%= f.input :description %>
-	<%= f.file_field :image %>
-	<%= f.button :submit %>
+<%= form_for @photo, :html => {:multipart => true} do |f| %>
+  <%= f.hidden_field :album_id %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+  	<%= f.label :description %><br />
+  	<%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <p><%= f.submit %></p>
 <% end %>

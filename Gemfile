@@ -11,6 +11,7 @@ gem "twitter-bootstrap-rails"
 
 gem 'simple_form'
 
+gem 'rmagick'
 gem 'carrierwave'
 
 # Use sqlite3 as the database for Active Record

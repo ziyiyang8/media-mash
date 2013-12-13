@@ -1,11 +1,10 @@
 MediaMash::Application.routes.draw do
   devise_for :users
-  get "photos/index"
-  get "photos/new"
   get "pages/home"
   get "pages/about"
   get "pages/contact"
   resources :albums
+  resources :photos
 
   root :to => "albums#index"
 
