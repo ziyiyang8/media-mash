@@ -8,6 +8,18 @@
   <dd><%= @album.name %></dd>
 </dl>
 
+sdfds
+<div>
+  <% for photo in @album.photos %>
+    <div>Placeholder</div>
+    <div> photo.name </div>
+    <div>
+    <%= link_to "edit" %>
+    <%= link_to "remove" %>
+    </div>
+  <% end %>
+</div>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               albums_path, :class => 'btn'  %>
