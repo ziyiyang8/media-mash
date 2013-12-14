@@ -15,7 +15,7 @@
     <div><%= photo.title %></div>
     <div>
     <%= link_to "edit" %>
-    <%= link_to "remove" %>
+    <%= link_to "remove", photo, method: :delete  %>
     </div>
   <% end %>
 </div>
