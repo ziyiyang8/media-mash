@@ -5,7 +5,8 @@
 
 <div>
   <% for photo in @album.photos %>
-    <div><%= image_tag photo.image_url(:thumb).to_s %></div>
+    <div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original), :popup=>['original_image', 'height=700,width=900'] %>
+    </div>
     <div><%= photo.title %></div>
     <div>
     <%= link_to "edit" %>
