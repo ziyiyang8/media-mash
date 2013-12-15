@@ -1,25 +1,6 @@
 <%- model_class = Album -%>
 <div class="page-header">
   <h1><%=t '.title', :default => @album.name %></h1>
-</div>
-
-<div id="photos">
-<!--   <% for photo in @album.photos %>
-    <div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original) %>
-    </div>
-    <div><%= photo.title %></div>
-    <div>
-    <%= link_to "edit" %>
-    <%= link_to "remove", album_photo_path(@album, photo), method: :delete  %>
-    </div>
-  <% end %> -->
-
-  <%= render 'photos/photo' %>
-</div>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              albums_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_album_path(@album), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -29,7 +10,13 @@
               :class => 'btn btn-danger' %>
 </div>
 
-<%= form_for [@album, Photo.new] do |f| %>
-  <%= f.label :image, "Upload photos:" %>
-  <%= f.file_field :image, multiple: true, name: "photo[image]" %>
-<% end %>
+<div id="photos">
+  <%= render 'photos/photo' %>
+</div>
+
+<div class="form-actions">
+  <%= form_for [@album, Photo.new] do |f| %>
+    <%= f.label :image, "Upload photos:" %>
+    <%= f.file_field :image, multiple: true, name: "photo[image]" %>
+  <% end %>
+</div>
