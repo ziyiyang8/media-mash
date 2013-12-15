@@ -7,12 +7,17 @@ class PhotosController < ApplicationController
   end
 
   def create
-  	@photo = Photo.new(photo_params)
-  	if @photo.save
-  		redirect_to @photo.album
-  	else
-  		render :action => 'new'
-  	end
+  	#@photo = Photo.new(photo_params)
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.create(photo_params)
+
+   #  @photo.album = @album
+  	# if @photo.save
+   #    flash[:notice] = "Photos added"
+  	# 	redirect_to @photo.album
+  	# else
+  	# 	render :action => 'new'
+  	# end
   end	
 
   def destroy

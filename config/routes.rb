@@ -3,8 +3,9 @@ MediaMash::Application.routes.draw do
   get "pages/home"
   get "pages/about"
   get "pages/contact"
-  resources :albums
-  resources :photos
+  resources :albums do
+    resources :photos
+  end
 
   root :to => "albums#index"
 

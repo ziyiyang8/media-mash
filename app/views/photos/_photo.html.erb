@@ -1,0 +1,11 @@
+<div class="photo">
+	<% @album.photos.each do |photo| %>
+		<div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original) %>
+	    </div>
+	    <div><%= photo.title %></div>
+	    <div>
+	    <%= link_to "edit" %>
+	    <%= link_to "remove", album_photo_path(@album, photo), method: :delete  %>
+	    </div>
+	<% end %>
+</div>
