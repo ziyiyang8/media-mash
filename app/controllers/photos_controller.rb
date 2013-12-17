@@ -27,6 +27,11 @@ class PhotosController < ApplicationController
     redirect_to @photo.album
   end
 
+  def download
+    @photo = Photo.find(params[:id])
+    send_file (@photo.image.path)
+  end
+
   private
 
   	def photo_params
