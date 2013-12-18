@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  $("a.fancybox").fancybox()  
   $('#new_photo').fileupload()
   	dataType: "script"
   add: (e, data) ->

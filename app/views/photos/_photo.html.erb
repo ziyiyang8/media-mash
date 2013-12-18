@@ -1,6 +1,6 @@
 <div class="photo">
 	<% @album.photos.each do |photo| %>
-		<div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original) %>
+		<div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original), { class: "fancybox", rel: "album" } %>
 	    </div>
 	    <div><%= photo.title %></div>
 	    <div>
