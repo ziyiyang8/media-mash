@@ -19,8 +19,3 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require_tree .
 //= require turbolinks
-
-
-$(document).ready(function() {
-	$("a.fancybox").fancybox();
-});
