@@ -10,7 +10,11 @@ MediaMash::Application.routes.draw do
     end
   end
 
-  root :to => "albums#index"
+  authenticated :user do
+    root :to => "albums#index", as: "authenticated_root"
+  end
+  
+  root :to => "pages#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
