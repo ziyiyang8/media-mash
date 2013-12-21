@@ -6,7 +6,7 @@
 	    <div>
 	    <%= link_to "download", :controller => "photos", action: 'download', id: photo.id, :album_id => photo.album.id %>
 	    <%= link_to "edit" %>
-		<%= link_to "remove", album_photo_path(@album, photo), method: :delete  %>	    
+		<%= link_to "remove", user_album_photo_path(current_user, @album, photo), method: :delete  %>	    
 		</div>
 	<% end %>
 </div>

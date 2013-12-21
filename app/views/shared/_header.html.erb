@@ -9,7 +9,7 @@
 			<div class="nav-collapse">
 				<ul class="nav">
 					<% if user_signed_in? %>
-						<li><%= link_to "Home", albums_path, { class: "brand" } %></li>
+						<li><%= link_to "Home", user_albums_path(current_user), { class: "brand" } %></li>
 					<% else %>
 						<li><%= link_to "Home", root_path, { class: "brand"} %></li>
 					<% end %>

@@ -2,9 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => @album.name %></h1>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_album_path(@album), :class => 'btn' %>
+              edit_user_album_path(@user, @album), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              album_path(@album),
+              user_album_path(@user,@album),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
@@ -15,8 +15,8 @@
 </div>
 
 <div class="form-actions">
-  <%= form_for [@album, Photo.new] do |f| %>
-    <%= f.label :image, "Upload photos:" %>
+  <%= form_for [@user,@album, Photo.new] do |f| %>
+    <%= f.label :image, "Upload photos by drag and drop or: " %>
     <%= f.file_field :image, multiple: true, name: "photo[image]" %>
   <% end %>
 </div>

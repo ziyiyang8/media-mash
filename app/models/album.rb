@@ -5,6 +5,6 @@ class Album < ActiveRecord::Base
 
 	has_many :photos
 
-	has_many :album_users
-	has_many :users, through: :album_users
+	has_many :albumusers
+	has_many :users, through: :albumusers, :foreign_key => :user_id
 end

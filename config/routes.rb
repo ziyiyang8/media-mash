@@ -4,9 +4,11 @@ MediaMash::Application.routes.draw do
   get "pages/about"
   get "pages/contact"
 
-  resources :albums do
-    resources :photos do
-      get 'download', :on => :member
+  resources :users do
+    resources :albums do
+      resources :photos do
+        get 'download', :on => :member
+      end
     end
   end
 

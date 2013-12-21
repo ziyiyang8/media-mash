@@ -1,12 +1,13 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   before_filter :authenticate_user!
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @albums = @user.albums
   end
 
   # GET /albums/1
@@ -28,9 +29,10 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = Album.new(album_params)
+    @album.users << @user
 
     if @album.save
-      redirect_to @album, notice: 'Album was successfully created.'
+      redirect_to [@user, @album], notice: 'Album was successfully created.'
       #format.json { render action: 'show', status: :created, location: @album }
     else
       flash.now[:error] =  'Album failed to create'
@@ -58,12 +60,15 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
   
   private
+    def set_user
+      @user = current_user
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_album
       @album = Album.find(params[:id])
