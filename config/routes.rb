@@ -12,6 +12,12 @@ MediaMash::Application.routes.draw do
     end
   end
 
+  resources :albums do
+    resources :photos do
+      get 'download', :on => :member
+    end
+  end
+
   authenticated :user do
     root :to => "albums#index", as: "authenticated_root"
   end
