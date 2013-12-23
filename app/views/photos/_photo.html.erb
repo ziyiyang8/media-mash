@@ -1,12 +1,14 @@
-<div class="photo">
+<div id="album">
 	<% @album.photos.each do |photo| %>
-		<div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original), { class: "fancybox", rel: "album" } %>
-	    </div>
-	    <div><%= photo.title %></div>
-	    <div>
-	    <%= link_to "download", :controller => "photos", action: 'download', id: photo.id, :album_id => photo.album.id %>
-	    <%= link_to "edit" %>
-		<%= link_to "remove", user_album_photo_path(current_user, @album, photo), method: :delete  %>	    
-		</div>
+			<div class="photo">
+				<div><%=link_to image_tag(photo.image_url(:thumb)), photo.image_url(:original), { class: "fancybox", rel: "album" } %>
+			    </div>
+			    <div><%= photo.title %></div>
+			    <div>
+			    <%= link_to "download", :controller => "photos", action: 'download', id: photo.id, :album_id => photo.album.id %>
+			    <%= link_to "edit" %>
+				<%= link_to "remove", user_album_photo_path(current_user, @album, photo), method: :delete  %>	    
+				</div>
+			</div>
 	<% end %>
 </div>
