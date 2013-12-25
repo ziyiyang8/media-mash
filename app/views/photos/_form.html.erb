@@ -6,8 +6,12 @@
   </p>
   <p>
   	<%= f.label :description %><br />
-  	<%= f.text_field :description %>
+  	<%= f.text_area :description, cols: "10", rows: "5" %>
   </p>
 
-  <p><%= f.submit %></p>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_album_path(current_user, @photo.album), :class => 'btn' %>
+  </div>
 <% end %>
