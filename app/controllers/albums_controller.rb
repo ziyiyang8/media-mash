@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_album, only: [:show, :edit, :update, :destroy, :add]
   before_action :set_user
 
   before_filter :authenticate_user!
@@ -13,6 +13,19 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+  end
+
+  def add
+    user_email = params[:user_email]
+    @album.users << User.find_by_email(user_email)
+
+    if @album.save
+      redirect_to [@user, @album], notice: "Album shared to #{user_email}"
+      #format.json { render action: 'show', status: :created, location: @album }
+    else
+      flash.now[:error] =  'Album failed to create'
+      #format.json { render json: @album.errors, status: :unprocessable_entity }
+    end
   end
 
   # GET /albums/new

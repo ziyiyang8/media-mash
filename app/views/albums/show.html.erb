@@ -8,6 +8,14 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+  
+  <br />
+  <%= form_tag add_album_path(@album), method: 'get' do %>
+    <label for="Add">Share Album(Email)</label>
+    <%= text_field_tag :user_email %>
+    <%= submit_tag "Submit", :class => 'btn' %>
+  <% end %>
+
 </div>
 
 <div id="photos">

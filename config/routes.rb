@@ -18,6 +18,10 @@ MediaMash::Application.routes.draw do
     end
   end
 
+  resources :albums do
+    get 'add', :on => :member
+  end
+
   resources :photos
 
   authenticated :user do
