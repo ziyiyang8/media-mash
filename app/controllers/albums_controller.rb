@@ -17,15 +17,20 @@ class AlbumsController < ApplicationController
 
   def add
     user_email = params[:user_email]
-    @album.users << User.find_by_email(user_email)
-
-    if @album.save
-      redirect_to [@user, @album], notice: "Album shared to #{user_email}"
-      #format.json { render action: 'show', status: :created, location: @album }
+    user = User.find_by_email(user_email)
+    if user.blank?
+      redirect_to [@user, @album], flash: { error: "User #{user_email} not found"}
     else
-      flash.now[:error] =  'Album failed to create'
+      @album.users << user
+      if @album.save
+        redirect_to [@user, @album], notice: "Album shared to #{user_email}"
+      #format.json { render action: 'show', status: :created, location: @album }
+      else
+        flash.now[:error] =  'Album failed to create'
       #format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
     end
+
   end
 
   # GET /albums/new
