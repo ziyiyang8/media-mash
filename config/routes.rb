@@ -2,7 +2,6 @@ MediaMash::Application.routes.draw do
   devise_for :users
   get "pages/home"
   get "pages/about"
-  get "pages/contact"
 
   resources :users do
     resources :albums do
