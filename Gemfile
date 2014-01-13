@@ -19,13 +19,17 @@ gem 'carrierwave'
 # Use sqlite3 as the database for Active Record
 group :test, :development do
 	gem 'rspec-rails'
+	gem 'factory_girl_rails'
 	gem 'sqlite3'
 	gem 'better_errors'
 end
 
 group :test do
-	gem 'cucumber-rails'
+	gem 'faker'
+	gem 'cucumber-rails', :require => false 
 	gem 'capybara'
+	gem 'launchy'
+	gem 'selenium-webdriver'
 	gem 'database_cleaner'
 end
 
