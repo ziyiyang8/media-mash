@@ -2,8 +2,8 @@ require 'spec_helper'
 
 feature 'Album management' do
 	scenario 'adding a new album', js: true do
-		set_speed(:slow)
-		
+		set_speed(:medium)
+
 		user = create(:user)
 
 		sign_in user
@@ -18,6 +18,6 @@ feature 'Album management' do
 
 		#save_and_open_page
 
-		expect(current_path).to eq user_album_path
+		expect(current_path).to eq user_album_path(user.id, 1)
 	end
 end
