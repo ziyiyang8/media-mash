@@ -1,6 +1,6 @@
 # Media-Mash
 
-media-mash.herokuapp.com
+Found at [media-mash.herokuapp.com](media-mash.herokuapp.com)
 
 Shared photo albums.
 
