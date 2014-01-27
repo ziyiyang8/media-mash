@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script language='javascript'>
+			function turnObjectToString()
+			{
+				var car = {};
+				car.numOfDoors = "2";
+				car.color = "blue";
+				currCarString = JSON.stringify(car);
+				document.location="jsonresponse.html?obj="+ currCarString;
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type='button' value='click' onclick='turnObjectToString()' />
+	</body>
+</html>
