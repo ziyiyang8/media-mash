@@ -184,6 +184,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
+    sendgrid (1.2.0)
+      json
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
@@ -252,6 +254,7 @@ DEPENDENCIES
   rspec-rails
   sdoc
   selenium-webdriver (~> 2.38.0)
+  sendgrid
   simple_form
   sqlite3
   therubyracer
